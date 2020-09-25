@@ -1,0 +1,19 @@
+Databases:
+   AMI: /home/an46/s_summer2020/Local Recordings/Train/{uri}.wav
+   
+
+Protocols:
+   AMI:
+      SpeakerDiarization:
+         MixHeadset:
+           train:
+              uri: /home/an46/tmp_pyannote/Train.lst
+              annotation: /home/an46/tmp_pyannote/combined_rttm.rttm
+           development:
+              uri: /home/an46/tmp_pyannote/Train.lst
+              annotation: home/an46/tmp_pyannote/combined_rttm.rttm
+           test:
+              uri: /home/an46/tmp_pyannote/Train.lst
+              annotation: /home/an46/tmp_pyannote/combined_rttm.rttm
+              
+   
