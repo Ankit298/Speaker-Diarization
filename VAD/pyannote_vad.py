@@ -1,34 +1,10 @@
-# from google.colab import drive
-# drive.mount('/content/gdrive')
-
-
-# !pip install -q https://github.com/pyannote/pyannote-audio/tarball/develop
-
 import torch 
 import os
-
-# Suppose you are trying to load pre-trained resnet model in directory- models\resnet
-
-# os.environ['TORCH_HOME'] = 'E:/Summer2020/pyannote-audio' #setting the environment variable
-
-
 
 from pyannote.core import *
 from pyannote.audio.features import RawAudio
 from IPython.display import Audio
 
-
-# import google.colab
-# own_file, _ = google.colab.files.upload().popitem()
-# OWN_FILE = {'audio': own_file}
-# notebook.reset()
-# # load audio waveform and play it
-# waveform = RawAudio(sample_rate=16000)(OWN_FILE).data
-# Audio(data=waveform.squeeze(), rate=16000, autoplay=True)
-
-
-# from google.colab import files
-# uploaded = files.upload()
 
 import collections
 import contextlib
@@ -123,8 +99,8 @@ def predict(frame_duration_ms,frames,path):
     return pred_list
         
 def main():
-    data_dir = '/home/an46/s_summer2020/Local Recordings/Test'
-    annotation_dir = '/home/an46/s_summer2020/Local Recordings/Test_Annotations'
+    data_dir = '/home/an46/fall20/Local Recordings/Test'
+    annotation_dir = '/home/an46/fall20/Local Recordings/Test_Annotations'
     #file = 'bollywood1_down.wav'
     sound_files = os.listdir(data_dir)
     print(sound_files)
@@ -237,30 +213,6 @@ def store_mistake_stretches():
     play_mistake_stretches(30,data_path,annotation_path,result_path)
     break
 
-def plot_barplot(eer_audioband_tl,eer_audioband,eer_watch_tl,eer_watch):
-  barwidth = 0.2
-  r1 = np.arange(len(eer_audioband))
-  r2 = [x + barwidth for x in r1]
-  plt.bar(r1,eer_audioband,width = barwidth,color = "Red",label = "Before TL")
-  plt.bar(r2,eer_audioband_tl,width = barwidth,color = "Blue",label = "After TL")
-  plt.xticks(r1,['Rec1','Rec2','Rec3'])
-  plt.ylabel('EER')
-  plt.title('EER change after TL for AudioBand')
-  plt.show()
-  r3 = np.arange(len(eer_watch))
-  r4 = [x + barwidth for x in r3]
-  plt.bar(r3,eer_watch,width = barwidth,color = 'Red',label = 'Before TL')
-  plt.bar(r4,eer_watch_tl,width = barwidth,color = 'Blue',label = 'After TL')
-  plt.xticks(r3,['Rec1','Rec2','Rec3','Rec4'])
-  plt.ylabel('EER')
-  plt.title('EER Change after TL for Watch')
-  plt.show()
-
-
-eer_audioband = [14.67,9.25,11.45]
-eer_watch = [18.71,10.89,15.94,23.52]
-#plot_barplot(eer_audioband_tl,eer_audioband,eer_watch_tl,eer_watch)
-# store_mistake_stretches()
 main()
 
 
