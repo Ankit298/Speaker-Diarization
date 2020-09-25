@@ -3,9 +3,9 @@ import random
 random.seed(40)
 import shutil
 
-data_dir = '/home/an46/s_summer2020/Local Recordings/Audio_snr'
-train_dir = '/home/an46/s_summer2020/Local Recordings/Train'
-test_dir = '/home/an46/s_summer2020/Local Recordings/Test'
+data_dir = '/home/an46/fall20/Local Recordings/Audio_snr'
+train_dir = '/home/an46/fall20/Local Recordings/Train'
+test_dir = '/home/an46/fall20/Local Recordings/Test'
 sound_files = os.listdir(data_dir)
 length = len(sound_files)
 train_frac = 0.8
