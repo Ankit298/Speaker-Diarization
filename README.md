@@ -14,11 +14,11 @@ Audio Data was collected from 3 sources: Audio Band recordings, Watch recordings
 
 # Directories:
 
-# VAD
+## VAD
 
-Contains files used to run two VAD frameworks: webRTC VAD and Pyannote VAD. The audio processing pipeline for webRTC VAD is in webrtc_vad.py and the pipeline to implement the Pyannote VAD framework is in pyannote_vad.py. 
+Contains files used to run two VAD frameworks: webRTC VAD and Pyannote VAD. The audio processing pipeline for webRTC VAD is in webrtc_vad.py and the pipeline to implement the Pyannote VAD framework is in pyannote_vad.py. Both codes run the VAD on the recordings in the 'Test' folder by default. The directory can be changed by modifying the path in the main() function of the both codes.
 
-# VAD Helper Codes
+## VAD Helper Codes
 
 Contains complementary files for data pre-processing (extracting sequences of audio, resampling, creating annotation files etc). Details on each of these complementary files can be found in the comments of the respective files. Run them only if required.
 
@@ -28,5 +28,5 @@ Error analysis was performed to see where exactly the existing frameworks were f
 
 # Local Recordings
 
-Contains the audio sequences collected from the audio band, smart watch, and youtube videos. Corresponding annotations is also present in this folder.
+Contains the audio sequences collected from the audio band, smart watch, and youtube videos. Corresponding annotations is also present in this folder. 
 
