@@ -16,11 +16,11 @@ Audio Data was collected from 3 sources: Audio Band recordings, Watch recordings
 
 ## VAD
 
-Contains files used to run two VAD frameworks: webRTC VAD and Pyannote VAD. The audio processing pipeline for webRTC VAD is in webrtc_vad.py and the pipeline to implement the Pyannote VAD framework is in pyannote_vad.py. Both codes run the VAD on the recordings in the 'Test' folder by default. The directory can be changed by modifying the path in the main() function of the both codes.
+Contains files used to run two VAD frameworks: webRTC VAD and Pyannote VAD. The audio processing pipeline for webRTC VAD is in webrtc_vad.py and the pipeline to implement the Pyannote VAD framework is in pyannote_vad.py. Both codes evaluate the pretrained models on VAD on the recordings in the 'Test' folder by default. The directory can be changed by modifying the path in the main() function of the both codes. If transfer learning is being implemented, the pretrained model tuned to the data in the 'Train' folder is evaluated on the 'Test' recordings. Transfer Learning is done only on the Pyannote VAD network and not for webRTC VAD.
 
 ## VAD Helper Codes
 
-Contains complementary files for data pre-processing (extracting sequences of audio, resampling, creating annotation files etc). Details on each of these complementary files can be found in the comments of the respective files. Run them only if required.
+Contains complementary files for data pre-processing (extracting sequences of audio, resampling, creating annotation files,creating randomized train-test splits etc). Details on each of these complementary files can be found in the comments of the respective files. Run them only if required.
 
 # Error Analysis
 
@@ -29,4 +29,14 @@ Error analysis was performed to see where exactly the existing frameworks were f
 # Local Recordings
 
 Contains the audio sequences collected from the audio band, smart watch, and youtube videos. Corresponding annotations is also present in this folder. 
+
+# Transfer Learning
+
+Detailed information to fine tune Pyannote's VAD network can be found [here](https://github.com/pyannote/pyannote-audio/tree/develop/tutorials/finetune).
+
+Three files have to be modified:
+
+* Train.lst - List of the names of all the test recordings. create_lst.py takes care of this.
+* combined_rttm - Combined annotations in RTTM format. convert_groundtruth_to_rttm.py does this.
+* database.yml - Specify paths for the train directory, RTTM annotation files and the Train.lst file.
 
